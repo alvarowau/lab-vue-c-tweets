@@ -1,24 +1,29 @@
+<script setup>
+const props = defineProps({
+  tweet : Object
+})
+</script>
+
 <template>
   <div class="tweet">
     <img
-      src="https://i.imgur.com/9yw1Fyw.jpg"
+      :src="props.tweet.user.image"
       class="profile"
-      alt="profile"
+      alt="imagen del tweet"
     />
 
     <div class="body">
       <div class="top">
         <span class="user">
-          <span class="name">Ironhack</span>
-          <span class="handle">@ironhack</span>
+          <span class="name">{{props.tweet.user.name}}</span>
+          <span class="handle">@{{props.tweet.user.handle}}</span>
         </span>
 
-        <span class="timestamp">Nov 30, 2020</span>
+        <span class="timestamp">{{ props.tweet.timestamp }}</span>
       </div>
 
       <p class="message">
-        On December 7th, we will be hosting a #webinar that will introduce you
-        to #SQL! Are you ready? 🚀
+          {{ props.tweet.message }}
       </p>
 
       <div class="actions">
